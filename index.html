@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MY CALCULATOR</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>CALCULATOR</h1>
+    <div class="container">
+      <div class="calc">
+        <input type="text" placeholder="0" id="op" />
+        <button onclick="display('7')">7</button>
+        <button onclick="display('8')">8</button>
+
+        <button onclick="display('9')">9</button>
+        <button class="op" onclick="display('+')">+</button>
+        <button onclick="display('4')">4</button>
+        <button onclick="display('5')">5</button>
+        <button onclick="display('6')">6</button>
+        <button class="op" onclick="display('-')">-</button>
+        <button onclick="display('1')">1</button>
+        <button onclick="display('2')">2</button>
+        <button onclick="display('3')">3</button>
+
+        <button class="op" onclick="display('*')">*</button>
+
+        <button class="op" onclick="clear('C')">C</button>
+        <button onclick="display('0')">0</button>
+        <button class="op" onclick="cancel('AC')">AC</button>
+        <button class="op" onclick="display('/')">/</button>
+        <button onclick="result('=')" class="equal">=</button>
+      </div>
+    </div>
+    <script>
+      let x = document.getElementById("op");
+      function display(val) {
+        x.value += val;
+      }
+      function cancel() {
+        x.value = "";
+      }
+      function result() {
+        try {
+          x.value = eval(x.value);
+        } catch {
+          alert("INVALID INPUT");
+          x.value = "";
+        }
+      }
+      function clear() {
+        x.value = x.value.toString().slice(0, -1);
+      }
+    </script>
+  </body>
+</html>
